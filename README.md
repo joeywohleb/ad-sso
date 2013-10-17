@@ -12,3 +12,7 @@ Required:
  - mod_auth_ntlm_winbind for Apache on Linux: http://samba.org/ftp/unpacked/lorikeet/
 
 + php_ldap extension for PHP
+
+Wordpress setting changes:
++ Make sure to change New User Default Role to what you see fit, it creates an account
+  for anyone that doesn't have one so Subscriber is probably the best choice. 
