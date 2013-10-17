@@ -16,11 +16,11 @@
     	require_once("ad-sso-admin.php");
     }
 
-    function ad_sso_user() {
+    function ad_sso_authenticte_user() {
     	require_once("ad-sso-user.php");
     } 
   
 	add_action('admin_menu', 'ad_sso_admin_actions'); 
-    add_action('after_setup_theme', 'function_name' );
+    add_action('after_setup_theme', 'ad_sso_authenticte_user' );
 
 ?>
