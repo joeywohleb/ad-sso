@@ -8,14 +8,19 @@
     Author URI: http://joeywohleb.com/
     */  
 
-    function adsso_admin() {
+    function ad_sso_admin_actions() {  
+    	add_options_page("AD SSO Settings", "AD SSO Settings", 1, "ad-sso-settings", "ad_sso_admin"); 
+	} 
+
+    function ad_sso_admin() {
     	require_once("ad-sso-admin.php");
     }
 
-    function adsso_admin_actions() {  
-    	add_options_page("AD SSO Settings", "AD SSO Settings", 1, "ad-sso-settings", "adsso_admin"); 
-	}  
+    function ad_sso_user() {
+    	require_once("ad-sso-user.php");
+    } 
   
-	add_action('admin_menu', 'adsso_admin_actions'); 
+	add_action('admin_menu', 'ad_sso_admin_actions'); 
+    add_action('after_setup_theme', 'function_name' );
 
 ?>
