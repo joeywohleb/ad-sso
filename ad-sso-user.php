@@ -36,7 +36,7 @@
 		$random_password = wp_generate_password( $length=12, $include_standard_special_chars=false );
 		$user_id = wp_create_user( $userid, $random_password, $email );
 		
-		wp_update_user( array ( 'ID' => ad_sso_get_user_id( $userid ), 'first_name' => $givenname, 'last_name' => $sn ) );
+		wp_update_user( array ( 'ID' => ad_sso_get_user_id( $userid ), 'first_name' => $givenname, 'last_name' => $sn, 'show_admin_bar_front' => 'false', 'display_name' =>  $givenname . ' ' . $sn, 'role' => 'subscriber') );
 	}
 
 	/*	Get domain and username of user	*/
