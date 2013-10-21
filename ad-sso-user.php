@@ -5,7 +5,7 @@
         return $user->ID;
     }
 
-    function ad_sso_register_user( $domain, $userid ) {
+    function ad_sso_register_user( $domain, $userid, $isNewUser ) {
 
         $ad_sso_fqdn = get_option('ad_sso_fqdn');
         $ad_sso_ou = get_option('ad_sso_ou');
@@ -39,19 +39,31 @@
                 $givenname = $entries[0]["givenname"][0];
                 $sn = $entries[0]["sn"][0];
 
-                $random_password = wp_generate_password( $length=12, $include_standard_special_chars=false );
-                $user_id = wp_create_user( $userid, $random_password, $email );
+                if ( $isNewUser ) {
+                    $random_password = wp_generate_password( $length=12, $include_standard_special_chars=false );
+                    $user_id = wp_create_user( $userid, $random_password, $email );
 
-                wp_update_user(
-                    array (
-                        'ID' => ad_sso_get_user_id( $userid ),
-                        'first_name' => $givenname,
-                        'last_name' => $sn,
-                        'show_admin_bar_front' => $ad_sso_show_toolbar,
-                        'display_name' =>  $givenname . ' ' . $sn,
-                        'role' => $ad_sso_default_role
-                    )
-                 );
+                    wp_update_user(
+                        array (
+                            'ID' => ad_sso_get_user_id( $userid ),
+                            'first_name' => $givenname,
+                            'last_name' => $sn,
+                            'show_admin_bar_front' => $ad_sso_show_toolbar,
+                            'display_name' =>  $givenname . ' ' . $sn,
+                            'role' => $ad_sso_default_role
+                        )
+                     );
+                } else {
+                    wp_update_user(
+                        array (
+                            'ID' => ad_sso_get_user_id( $userid ),
+                            'first_name' => $givenname,
+                            'last_name' => $sn,
+                            'display_name' =>  $givenname . ' ' . $sn,
+                            'user_email' => $email
+                        )
+                     );
+                }
             } catch(Exception $e) {
                 echo 'Caught exception binding to LDAP Directory: ',  $e->getMessage(), "<br />";
             }
@@ -76,13 +88,15 @@
 
     if ( !is_user_logged_in() ) {
         if (username_exists( $ad_sso_local_userid )) {
-            $user_id = ad_sso_get_user_id( $ad_sso_local_userid );
-            wp_set_current_user($user_id, $ad_sso_local_userid);
-            wp_set_auth_cookie($user_id);
-            do_action('wp_login', $ad_sso_local_userid);
+            ad_sso_register_user($ad_sso_local_domain, $ad_sso_local_userid, false); // update name and email
+
         } else {
-            ad_sso_register_user($ad_sso_local_domain, $ad_sso_local_userid);
+            ad_sso_register_user($ad_sso_local_domain, $ad_sso_local_userid, true); // register user
         }
+        $user_id = ad_sso_get_user_id( $ad_sso_local_userid );
+        wp_set_current_user($user_id, $ad_sso_local_userid);
+        wp_set_auth_cookie($user_id);
+        do_action('wp_login', $ad_sso_local_userid);
     }
 
 ?>
