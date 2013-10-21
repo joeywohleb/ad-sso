@@ -1,39 +1,47 @@
 
-<div class="wrap">  
-    <?php    echo "<h2>" . __( 'Active Directory Single Sign On Settings', 'ad_sso_trdom' ) . "</h2>"; ?>  
-    <?php  
-     
-    if($_POST['ad_sso_hidden'] == 'Y') {  
-        //Form data sent  
-        $fqdn = $_POST['ad_sso_fqdn'];  
-        update_option('ad_sso_fqdn', $fqdn);  
-          
-        $ou = $_POST['ad_sso_ou'];  
-        update_option('ad_sso_ou', $ou);  
-          
-        $username = $_POST['ad_sso_username'];  
-        update_option('ad_sso_username', $username);  
-          
-        $password = $_POST['ad_sso_password'];  
-        update_option('ad_sso_password', $password);  
+<div class="wrap">
+    <?php    echo "<h2>" . __( 'Active Directory Single Sign On Settings', 'ad_sso_trdom' ) . "</h2>"; ?>
+    <?php
 
-        $domain = $_POST['ad_sso_domain'];  
-        update_option('ad_sso_domain', $domain);  
-        ?>  
-        <div class="updated"><p><strong><?php _e('Options saved.' ); ?></strong></p></div>  
-        <?php  
-    } else {  
-        //Normal page display  
-        $fqdn = get_option('ad_sso_fqdn');  
-        $ou = get_option('ad_sso_ou');  
-        $username = get_option('ad_sso_username');  
+    if($_POST['ad_sso_hidden'] == 'Y') {
+        //Form data sent
+        $fqdn = $_POST['ad_sso_fqdn'];
+        update_option('ad_sso_fqdn', $fqdn);
+
+        $ou = $_POST['ad_sso_ou'];
+        update_option('ad_sso_ou', $ou);
+
+        $username = $_POST['ad_sso_username'];
+        update_option('ad_sso_username', $username);
+
+        $password = $_POST['ad_sso_password'];
+        update_option('ad_sso_password', $password);
+
+        $domain = $_POST['ad_sso_domain'];
+        update_option('ad_sso_domain', $domain);
+
+        $default_role = $_POST['ad_sso_default_role'];
+        update_option('ad_sso_default_role', $default_role);
+
+        $show_toolbar = intval($_POST['ad_sso_show_toolbar']);
+        update_option('ad_sso_show_toolbar', $show_toolbar);
+        ?>
+        <div class="updated"><p><strong><?php _e('Options saved.' ); ?></strong></p></div>
+        <?php
+    } else {
+        //Normal page display
+        $fqdn = get_option('ad_sso_fqdn');
+        $ou = get_option('ad_sso_ou');
+        $username = get_option('ad_sso_username');
         $password = get_option('ad_sso_password');
-        $domain = get_option('ad_sso_domain');  
-    }  
-?>   
-    <form name="ad_sso_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">  
-        <input type="hidden" name="ad_sso_hidden" value="Y" />                      
-        <h4>Active Directory Search Settings</h4>  
+        $domain = get_option('ad_sso_domain');
+        $default_role = get_option('ad_sso_default_role');
+        $show_toolbar = get_option('ad_sso_show_toolbar');
+    }
+?>
+    <form name="ad_sso_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
+        <input type="hidden" name="ad_sso_hidden" value="Y" />
+        <h4>Active Directory Search Settings</h4>
 
         <table class="form-table">
             <tbody>
@@ -90,9 +98,47 @@
                 </tr>
             </tbody>
         </table>
-      
-        <p class="submit">  
-            <input type="submit" name="Submit" value="Update Options" class="button button-primary" />  
-        </p>  
-    </form>  
-</div>  
+
+        <h4>Default User Settings</h4>
+        <table class="form-table">
+            <tbody>
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="ad_sso_default_role">Default Role</label>
+                    </th>
+                    <td>
+                        <select name="ad_sso_default_role" id="ad_sso_default_role">
+                            <option value="administrator"<?=$default_role === 'administrator' ? ' selected="selected"' : '';?>>Administrator</option>
+                            <option value="editor"<?=$default_role === 'editor' ? ' selected="selected"' : '';?>>Editor</option>
+                            <option value="author"<?=$default_role === 'author' ? ' selected="selected"' : '';?>>Author</option>
+                            <option value="contributor"<?=$default_role === 'contributor' ? ' selected="selected"' : '';?>>Contributor</option>
+                            <option value="subscriber"<?=$default_role === 'subscriber' ? ' selected="selected"' : '';?>>Subscriber</option>
+                            <option value="pending"<?=$default_role === 'pending' ? ' selected="selected"' : '';?>>Pending</option>
+                        </select>
+                        <p class="description">Default role for users created by this plugin</p>
+                    </td>
+                </tr>
+                <tr class="show-admin-bar">
+                    <th scope="row">
+                        Toolbar
+                    </th>
+                    <td>
+                        <fieldset>
+                            <legend class="screen-reader-text">
+                                <span>Toolbar</span>
+                            </legend>
+                            <label for="ad_sso_show_toolbar">
+                                <input type="checkbox" name="ad_sso_show_toolbar" id="ad_sso_show_toolbar" value="1"<?=$show_toolbar == 1 ? ' checked="checked"' : '';?>>
+                                Show Toolbar when viewing site
+                            </label>
+                        </fieldset>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="submit">
+            <input type="submit" name="Submit" value="Update Options" class="button button-primary" />
+        </p>
+    </form>
+</div>
