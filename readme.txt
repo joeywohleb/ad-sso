@@ -1,5 +1,13 @@
-ad-sso
-======
+=== Active Directory SSO ===
+Contributors: joeywohleb
+Tags: active directory, ldap, sso
+Tested up to: 3.6
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Wordpress plugin for implenting Single Sign On for Active Directory.
+
+== Description ==
 
 Wordpress plugin for implenting Single Sign On for Active Directory.
 
@@ -15,3 +23,14 @@ Required:
 
 For anyone that uses IIS7, for file uploads you'll need to give the actual users that will upload files
  access to read, write and modify ..\wp-content\uploads and PHP's temp upload directory.
+
+== Installation ==
+
+1. Upload files to the `/wp-content/plugins/` directory
+1. Activate Active Directory Single Sign On through the 'Plugins' menu in WordPress
+1. Go to settings page and set all options.
+
+== Changelog ==
+
+= 0.1 =
+Initial release. 

@@ -20,6 +20,16 @@
     	require_once("ad-sso-user.php");
     }
 
+    // Add settings link on plugin page
+    function ad_sso_settings_link($links) {
+      $settings_link = '<a href="options-general.php?page=ad-sso-settings">Settings</a>';
+      array_unshift($links, $settings_link);
+      return $links;
+    }
+
+    $plugin = plugin_basename(__FILE__);
+    add_filter("plugin_action_links_$plugin", 'ad_sso_settings_link' );
+
 	add_action('admin_menu', 'ad_sso_admin_actions');
     add_action('after_setup_theme', 'ad_sso_authenticte_user' );
 
