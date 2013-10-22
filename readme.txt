@@ -3,7 +3,7 @@ Contributors: joeywohleb
 Tags: active directory, ldap, sso
 Requires at least: 3.0.1
 Tested up to: 3.6
-Stable tag: trunk
+Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,9 @@ For anyone that uses IIS7, for file uploads you'll need to give the actual users
 1. Go to settings page and set all options.
 
 == Changelog ==
+
+= 0.2 =
+Changed name of application to match Wordpress plugin directory. 
 
 = 0.1 =
 Initial release.
