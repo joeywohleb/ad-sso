@@ -1,7 +1,9 @@
 === Active Directory SSO ===
 Contributors: joeywohleb
 Tags: active directory, ldap, sso
+Requires at least: 3.0.1
 Tested up to: 3.6
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,6 +14,7 @@ Wordpress plugin for implenting Single Sign On for Active Directory.
 Wordpress plugin for implenting Single Sign On for Active Directory.
 
 Required:
+
 + IIS 7+ with anonyomous access disabled turned off, or one of the below plugins for Apache:
 
  - mod_auth_sspi for Apache on Windows: http://mod-auth-sspi.sourceforge.net/
@@ -33,4 +36,4 @@ For anyone that uses IIS7, for file uploads you'll need to give the actual users
 == Changelog ==
 
 = 0.1 =
-Initial release. 
+Initial release.
