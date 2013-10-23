@@ -1,8 +1,8 @@
 <?php
     /*
     Plugin Name: Active Directory SSO
-    Plugin URI: https://github.com/joeywohleb/ad-sso
-    Description: Wordpress plugin for implenting Single Sign On for Active Directory.
+    Plugin URI: http://wordpress.org/plugins/active-directory-sso/
+    Description: Wordpress plugin for implementing  Single Sign On for Active Directory.
     Author: Joey Wohleb
     Version: 0.2
     Author URI: http://joeywohleb.com/

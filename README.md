@@ -1,10 +1,10 @@
 Active Directory SSO
 ======
 
-Wordpress plugin for implenting Single Sign On for Active Directory.
+Wordpress plugin for implementing Single Sign On for Active Directory.
 
 Required:
-+ IIS 7+ with anonyomous access disabled turned off, or one of the below plugins for Apache:
++ IIS 7+ with anonymous access disabled turned off, or one of the below plugins for Apache:
 
  - mod_auth_sspi for Apache on Windows: http://mod-auth-sspi.sourceforge.net/
  - mod_auth_kerb for Apache on Linux: http://modauthkerb.sourceforge.net/
