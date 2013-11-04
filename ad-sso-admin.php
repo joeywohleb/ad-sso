@@ -26,7 +26,7 @@
         $show_toolbar = intval($_POST['ad_sso_show_toolbar']);
         update_option('ad_sso_show_toolbar', $show_toolbar);
         ?>
-        <div class="updated"><p><strong><?php _e('Options saved.' ); ?></strong></p></div>
+        <div class="updated"><p><strong><?php __( 'Options saved.' ); ?></strong></p></div>
         <?php
     } else {
         //Normal page display
@@ -41,13 +41,13 @@
 ?>
     <form name="ad_sso_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
         <input type="hidden" name="ad_sso_hidden" value="Y" />
-        <h4>Active Directory Search Settings</h4>
+        <h4><?php __( 'Active Directory Search Settings' ); ?></h4>
 
         <table class="form-table">
             <tbody>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_fqdn">Fully Qualified Domain</label>
+                        <label for="ad_sso_fqdn"><?php __( 'Fully Qualified Domain' ); ?></label>
                     </th>
                     <td>
                         <input type="text" name="ad_sso_fqdn" id="ad_sso_fqdn" value="<?php echo $fqdn; ?>" class="regular-text" />
@@ -56,7 +56,7 @@
                 </tr>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_ou">Organizational Unit</label>
+                        <label for="ad_sso_ou"><?php __( 'Organizational Unit' ); ?></label>
                     </th>
                     <td>
                         <input type="text" name="ad_sso_ou" id="ad_sso_ou" value="<?php echo $ou; ?>" class="regular-text" />
@@ -66,12 +66,12 @@
             </tbody>
         </table>
 
-        <h4>Read-Only Service Account Settings</h4>
+        <h4><?php __( 'Read-Only Service Account Settings' ); ?></h4>
         <table class="form-table">
             <tbody>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_username">Username</label>
+                        <label for="ad_sso_username"><?php __( 'Username' ); ?></label>
                     </th>
                     <td>
                         <input type="text" name="ad_sso_username" id="ad_sso_username" value="<?php echo $username; ?>" class="regular-text" />
@@ -80,7 +80,7 @@
                 </tr>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_username">Password</label>
+                        <label for="ad_sso_username"<?php __( '>Password' ); ?></label>
                     </th>
                     <td>
                         <input type="password" name="ad_sso_password" id="ad_sso_password" value="<?php echo $password; ?>" class="regular-text" />
@@ -89,22 +89,22 @@
                 </tr>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_domain">Domain</label>
+                        <label for="ad_sso_domain"><?php __( 'Domain' ); ?></label>
                     </th>
                     <td>
                         <input type="text" name="ad_sso_domain" id="ad_sso_domain" value="<?php echo $domain; ?>" class="regular-text" />
-                        <p class="description">ex: sub from sub\serviceaccount</p>
+                        <p class="description">ex: sub <?php __( 'from' ); ?> sub\serviceaccount</p>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <h4>Default User Settings</h4>
+        <h4>Default User Settings' ); ?></h4>
         <table class="form-table">
             <tbody>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_default_role">Default Role</label>
+                        <label for="ad_sso_default_role"><?php __( 'Default Role' ); ?></label>
                     </th>
                     <td>
                         <select name="ad_sso_default_role" id="ad_sso_default_role">
@@ -125,11 +125,11 @@
                     <td>
                         <fieldset>
                             <legend class="screen-reader-text">
-                                <span>Toolbar</span>
+                                <span><?php __( 'Toolbar' ); ?></span>
                             </legend>
                             <label for="ad_sso_show_toolbar">
                                 <input type="checkbox" name="ad_sso_show_toolbar" id="ad_sso_show_toolbar" value="1"<?=$show_toolbar == 1 ? ' checked="checked"' : '';?>>
-                                Show Toolbar when viewing site
+                                <?php __( 'Show Toolbar when viewing site' ); ?>
                             </label>
                         </fieldset>
                     </td>
