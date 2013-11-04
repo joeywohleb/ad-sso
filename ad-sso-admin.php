@@ -1,6 +1,6 @@
 
 <div class="wrap">
-    <?php    echo "<h2>" . __( 'Active Directory Single Sign On Settings', 'ad_sso_trdom' ) . "</h2>"; ?>
+    <?php    echo "<h2>" . __( 'Active Directory Single Sign On Settings', 'ad_sso' ) . "</h2>"; ?>
     <?php
 
     if($_POST['ad_sso_hidden'] == 'Y') {
@@ -26,7 +26,7 @@
         $show_toolbar = intval($_POST['ad_sso_show_toolbar']);
         update_option('ad_sso_show_toolbar', $show_toolbar);
         ?>
-        <div class="updated"><p><strong><?php __( 'Options saved.' ); ?></strong></p></div>
+        <div class="updated"><p><strong><?php echo __( 'Options saved.', 'ad_sso' ); ?></strong></p></div>
         <?php
     } else {
         //Normal page display
@@ -41,13 +41,13 @@
 ?>
     <form name="ad_sso_form" method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
         <input type="hidden" name="ad_sso_hidden" value="Y" />
-        <h4><?php __( 'Active Directory Search Settings' ); ?></h4>
+        <h4><?php echo __( 'Active Directory Search Settings', 'ad_sso' ); ?></h4>
 
         <table class="form-table">
             <tbody>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_fqdn"><?php __( 'Fully Qualified Domain' ); ?></label>
+                        <label for="ad_sso_fqdn"><?php echo __( 'Fully Qualified Domain', 'ad_sso' ); ?></label>
                     </th>
                     <td>
                         <input type="text" name="ad_sso_fqdn" id="ad_sso_fqdn" value="<?php echo $fqdn; ?>" class="regular-text" />
@@ -56,7 +56,7 @@
                 </tr>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_ou"><?php __( 'Organizational Unit' ); ?></label>
+                        <label for="ad_sso_ou"><?php echo __( 'Organizational Unit', 'ad_sso' ); ?></label>
                     </th>
                     <td>
                         <input type="text" name="ad_sso_ou" id="ad_sso_ou" value="<?php echo $ou; ?>" class="regular-text" />
@@ -66,12 +66,12 @@
             </tbody>
         </table>
 
-        <h4><?php __( 'Read-Only Service Account Settings' ); ?></h4>
+        <h4><?php echo __( 'Read-Only Service Account Settings', 'ad_sso' ); ?></h4>
         <table class="form-table">
             <tbody>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_username"><?php __( 'Username' ); ?></label>
+                        <label for="ad_sso_username"><?php echo __( 'Username', 'ad_sso' ); ?></label>
                     </th>
                     <td>
                         <input type="text" name="ad_sso_username" id="ad_sso_username" value="<?php echo $username; ?>" class="regular-text" />
@@ -80,7 +80,7 @@
                 </tr>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_username"<?php __( '>Password' ); ?></label>
+                        <label for="ad_sso_username"<?php echo __( '>Password', 'ad_sso' ); ?></label>
                     </th>
                     <td>
                         <input type="password" name="ad_sso_password" id="ad_sso_password" value="<?php echo $password; ?>" class="regular-text" />
@@ -89,22 +89,22 @@
                 </tr>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_domain"><?php __( 'Domain' ); ?></label>
+                        <label for="ad_sso_domain"><?php echo __( 'Domain', 'ad_sso' ); ?></label>
                     </th>
                     <td>
                         <input type="text" name="ad_sso_domain" id="ad_sso_domain" value="<?php echo $domain; ?>" class="regular-text" />
-                        <p class="description">ex: sub <?php __( 'from' ); ?> sub\serviceaccount</p>
+                        <p class="description">ex: sub <?php echo __( 'from', 'ad_sso' ); ?> sub\serviceaccount</p>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <h4>Default User Settings' ); ?></h4>
+        <h4><?php echo __( 'Default User Settings', 'ad_sso' ); ?></h4>
         <table class="form-table">
             <tbody>
                 <tr valign="top">
                     <th scope="row">
-                        <label for="ad_sso_default_role"><?php __( 'Default Role' ); ?></label>
+                        <label for="ad_sso_default_role"><?php echo __( 'Default Role', 'ad_sso' ); ?></label>
                     </th>
                     <td>
                         <select name="ad_sso_default_role" id="ad_sso_default_role">
@@ -125,11 +125,11 @@
                     <td>
                         <fieldset>
                             <legend class="screen-reader-text">
-                                <span><?php __( 'Toolbar' ); ?></span>
+                                <span><?php echo __( 'Toolbar', 'ad_sso' ); ?></span>
                             </legend>
                             <label for="ad_sso_show_toolbar">
                                 <input type="checkbox" name="ad_sso_show_toolbar" id="ad_sso_show_toolbar" value="1"<?=$show_toolbar == 1 ? ' checked="checked"' : '';?>>
-                                <?php __( 'Show Toolbar when viewing site' ); ?>
+                                <?php echo __( 'Show Toolbar when viewing site', 'ad_sso' ); ?>
                             </label>
                         </fieldset>
                     </td>

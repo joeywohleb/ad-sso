@@ -4,7 +4,7 @@
     Plugin URI: http://wordpress.org/plugins/active-directory-sso/
     Description: Wordpress plugin for implementing  Single Sign On for Active Directory.
     Author: Joey Wohleb
-    Version: 0.2.1
+    Version: 0.2.3
     Author URI: http://joeywohleb.com/
     */
 
