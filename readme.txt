@@ -2,8 +2,8 @@
 Contributors: joeywohleb
 Tags: active directory, ldap, sso
 Requires at least: 3.6
-Tested up to: 3.8
-Stable tag: 0.2.4
+Tested up to: 4.6
+Stable tag: 0.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,9 @@ For anyone that uses IIS7, for file uploads you'll need to give the actual users
 1. Go to settings page and set all options.
 
 == Changelog ==
+
+= 0.2.5 =
+Verified to work with Wordpress 4.6 and refactoring.
 
 = 0.2.4 =
 Verified to be working with Wordpress 3.8
